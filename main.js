@@ -2,7 +2,7 @@ $(document).ready(function(){
   var audio;
   var biquadFilter;
   var clientParameter = "client_id=033e31e2d036e02f39242e1aa1dd2fa9";
-  var trackPermalinkUrl = "https://soundcloud.com/apollyonrecords/iamunpossible-x-cupidz-ghastly";
+  var trackPermalinkUrl = "https://soundcloud.com/isolationz/delicacy-beastmode-isolationz-remix";
 
   //Get Audio element
   audio = document.getElementById("theSong");
@@ -145,7 +145,8 @@ $(document).ready(function(){
       if(arr[i].count > threshold){
         //bpm is 60 seconds / the highest interval thresholds.
         var bpm = 60 / arr[i].interval;
-        if(bpm < 80){
+        //focus on electronic higher bpm measures. a lot of DnB and stuff will report half measures
+        if(bpm <= 85){
           bpm = bpm * 2;
         }
         bpm = Math.round(bpm);
