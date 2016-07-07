@@ -6,4 +6,4 @@ This is currently working well for 4/4 beats and things with harder kick drums. 
 
 Good resource for playing with Web Audio filters = http://codepen.io/anon/pen/akwkRA?editors=1010
 
-
+BPM will be logged in the console when you load up index.html in browser

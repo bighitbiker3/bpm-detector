@@ -2,7 +2,9 @@ $(document).ready(function(){
   var audio;
   var biquadFilter;
   var clientParameter = "client_id=033e31e2d036e02f39242e1aa1dd2fa9";
-  var trackPermalinkUrl = "https://soundcloud.com/isolationz/delicacy-beastmode-isolationz-remix";
+
+  //Put Soundcloud permalink here
+  var trackPermalinkUrl = "https://soundcloud.com/imsamme/marshmello-alone-samme-remix";
 
   //Get Audio element
   audio = document.getElementById("theSong");
@@ -31,7 +33,9 @@ $(document).ready(function(){
         //filter
         var filter = offlineContext.createBiquadFilter();
         filter.type = "lowpass";
+        //Good frequency for detecting kick punch and blocking out other peaks
         filter.frequency.value = 211;
+        //Read up on Q values in filters if you're unsure what this does.  Also check out the codepen link in the ReadMe
         filter.Q.value = 15;
 
         //song goes into filter
@@ -49,6 +53,7 @@ $(document).ready(function(){
           // Filtered buffer!
           var filteredBuffer = e.renderedBuffer;
           var threshold = 0.98;
+          //pcmArray is all frequency data for each sample frame
           var pcmArray = filteredBuffer.getChannelData(0);
           var peaksArr = getPeaksAtThreshold(pcmArray, threshold);
           var timeBetweenPeaks = durationBetweenPeaks(peaksArr, filteredBuffer);
